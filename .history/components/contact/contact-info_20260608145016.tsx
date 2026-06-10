@@ -1,0 +1,106 @@
+"use client";
+
+import {
+  Mail,
+  Phone,
+  MessageCircle,
+  Send,
+} from "lucide-react";
+
+const contacts = [
+  {
+    title: "Email",
+    value: "contact@truview.com",
+    href: "mailto:contact@truview.com",
+    icon: Mail,
+  },
+  {
+    title: "Phone",
+    value: "+1 (000) 000-0000",
+    href: "tel:+10000000000",
+    icon: Phone,
+  },
+  {
+    title: "WhatsApp",
+    value: "Chat With Us",
+    href: "#",
+    icon: MessageCircle,
+  },
+  {
+    title: "Telegram",
+    value: "@truview",
+    href: "#",
+    icon: Send,
+  },
+];
+
+export default function ContactInfo() {
+  return (
+    <section className="bg-slate-900 px-6 py-28 text-white">
+
+        <div
+  className="
+  absolute
+  -right-20
+  -top-20
+  h-40
+  w-40
+  rounded-full
+  bg-teal-500/10
+  blur-3xl
+  opacity-0
+  transition-opacity
+  duration-500
+  group-hover:opacity-100
+  "
+/>
+
+      <div className="mx-auto max-w-7xl">
+
+        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+          {contacts.map((item) => {
+            const Icon = item.icon;
+
+            return (
+              <a
+                key={item.title}
+                href={item.href}
+                className="rounded-3xl border border-white/10 bg-white/5 p-8 transition hover:border-teal-500/50"
+              >
+              <div
+  className="
+  mb-6
+  flex
+  h-16
+  w-16
+  items-center
+  justify-center
+  rounded-2xl
+  bg-teal-500/10
+  transition-all
+  duration-300
+  group-hover:scale-110
+  "
+>
+  <Icon
+    size={32}
+    className="text-teal-400"
+  />
+</div>
+
+                <h3 className="text-2xl font-bold">
+                  {item.title}
+                </h3>
+
+                <p className="mt-3 text-slate-400">
+                  {item.value}
+                </p>
+              </a>
+            );
+          })}
+        </div>
+
+      </div>
+    </section>
+  );
+}
